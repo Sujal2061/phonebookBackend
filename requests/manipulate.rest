@@ -1,0 +1,15 @@
+GET http://localhost:3001/api/persons
+###
+GET http://localhost:3001/api/persons/1
+###
+GET http://localhost:3001/info
+###
+DELETE http://localhost:3001/api/persons/1
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Billy Butcher",
+    "number": "46435345353" 
+}
