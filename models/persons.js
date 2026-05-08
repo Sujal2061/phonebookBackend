@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
 
-const url = `mongodb://sujalkoirala404_db_user:sujal2061@ac-8mergjl-shard-00-00.jgjrnr1.mongodb.net:27017,ac-8mergjl-shard-00-01.jgjrnr1.mongodb.net:27017,ac-8mergjl-shard-00-02.jgjrnr1.mongodb.net:27017/phonebookApp?ssl=true&replicaSet=atlas-hjkvgq-shard-0&authSource=admin&appName=Cluster0`;
+const url = process.env.MONGODB_URI;
 
 console.log("connecting to ", url);
 
@@ -19,13 +19,13 @@ const personSchema = new mongoose.Schema({
     minLength: 5,
   },
   number: {
-    type:String,
+    type: String,
     minLength: 8,
-    validate:{
-      validator: (v)=>{
+    validate: {
+      validator: (v) => {
         return /^\d{2,3}-\d+$/.test(v);
-      }
-    }
+      },
+    },
   },
 });
 
